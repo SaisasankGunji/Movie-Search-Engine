@@ -89,7 +89,7 @@ function Home() {
               disabled={currentPage === 1}
               className="pagination-arrow"
             >
-              🡰
+              &laquo;
             </button>
             {Array.from({ length: totalPages }, (_, i) => i + 1)
               .slice(
@@ -112,7 +112,7 @@ function Home() {
               disabled={currentPage === totalPages}
               className="pagination-arrow"
             >
-              🡲
+              &raquo;
             </button>
           </div>
         </>
