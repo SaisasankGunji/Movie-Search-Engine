@@ -15,10 +15,10 @@
 @media (max-width: 400px) {
   .search-form {
     padding: 0rem 1rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    /* justify-content: center;
+    align-items: center; */
   }
   .search-input {
     height: 100%;
@@ -29,6 +29,12 @@
     height: 100%;
     color: orange;
     transform: scale(0.9);
+  }
+}
+
+@media (max-width: 300px) {
+  .movies-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -138,4 +144,8 @@
   text-align: center;
   margin-top: 1rem;
   color: #007bff; /* Blue loading text */
+}
+
+body.modal-open {
+  overflow: hidden;
 }
