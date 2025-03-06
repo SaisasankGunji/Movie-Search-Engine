@@ -1,18 +1,23 @@
-import "../css/MovieCard.css";
 import { useMovieContext } from "../contexts/MovieContext";
+import "../css/MovieCard.css";
 
-function MovieCard({ movie }) {
+function MovieCard({ movie, setActiveMovie }) {
   const { isFavourite, addToFavourites, removeFromFavourites } =
     useMovieContext();
-
   const favourite = isFavourite(movie.id);
+
   function onFavouriteClick(e) {
     e.preventDefault();
     if (favourite) removeFromFavourites(movie.id);
     else addToFavourites(movie);
   }
+
   return (
-    <div className="movie-card">
+    <div
+      className="movie-card"
+      onClick={() => setActiveMovie(movie)}
+      style={{ cursor: "pointer" }}
+    >
       <div className="movie-poster">
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
