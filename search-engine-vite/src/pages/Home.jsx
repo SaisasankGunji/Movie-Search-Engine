@@ -1,5 +1,6 @@
-import MovieCard from "../components/MovieCard";
 import { useState, useEffect } from "react";
+import MovieCard from "../components/MovieCard";
+import MovieModal from "../components/MovieModal";
 import { searchMovies, getPopularMovies } from "../services/api";
 import "../css/Home.css";
 
@@ -11,6 +12,7 @@ function Home() {
   const [manualSearch, setManualSearch] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [activeMovie, setActiveMovie] = useState(null); // State for selected movie modal
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -47,11 +49,12 @@ function Home() {
   };
 
   const goToFirstPage = () => {
-    setCurrentPage(1); // Navigate to the first page
+    setCurrentPage(1);
   };
 
   return (
-    <div className="home">
+    <div className={`home ${activeMovie ? "modal-active" : ""}`}>
+      {/* Search Form */}
       <form onSubmit={handleSearch} className="search-form">
         <input
           type="text"
@@ -65,17 +68,25 @@ function Home() {
         </button>
       </form>
 
+      {/* Error Message */}
       {error && <div className="error-message">{error}</div>}
 
+      {/* Movie List */}
       {loading ? (
         <div className="loading">Loading...</div>
       ) : (
         <>
           <div className="movies-grid">
             {movies.map((movie) => (
-              <MovieCard movie={movie} key={movie.id} />
+              <MovieCard
+                key={movie.id}
+                movie={movie}
+                setActiveMovie={setActiveMovie}
+              />
             ))}
           </div>
+
+          {/* Pagination */}
           <div className="pagination">
             <button
               onClick={goToFirstPage}
@@ -116,6 +127,11 @@ function Home() {
             </button>
           </div>
         </>
+      )}
+
+      {/* Modal (Only show when a movie is selected) */}
+      {activeMovie && (
+        <MovieModal movie={activeMovie} onClose={() => setActiveMovie(null)} />
       )}
     </div>
   );
