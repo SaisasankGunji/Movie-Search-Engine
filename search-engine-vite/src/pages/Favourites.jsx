@@ -10,7 +10,7 @@ function Favourites() {
 
   return (
     <div className="favourites">
-      <h2>Your Favourites</h2>
+      <h2 className="favourites-title">Your Favourites</h2>
       {favourites.length > 0 ? (
         <div className="movies-grid">
           {favourites.map((movie) => (
@@ -23,7 +23,7 @@ function Favourites() {
         </div>
       ) : (
         <div className="favourites-empty">
-          <h2>No Favourite Movies Yet</h2>
+          <h2 className="favourites-empty-title">No Favourite Movies Yet</h2>
           <p>
             Start adding movies to your favourites and they will appear here!
           </p>
