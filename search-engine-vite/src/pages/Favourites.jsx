@@ -1,9 +1,12 @@
+import { useState } from "react";
 import "../css/Favourites.css";
 import { useMovieContext } from "../contexts/MovieContext";
 import MovieCard from "../components/MovieCard";
+import MovieModal from "../components/MovieModal";
 
 function Favourites() {
   const { favourites } = useMovieContext();
+  const [activeMovie, setActiveMovie] = useState(null);
 
   return (
     <div className="favourites">
@@ -11,7 +14,11 @@ function Favourites() {
       {favourites.length > 0 ? (
         <div className="movies-grid">
           {favourites.map((movie) => (
-            <MovieCard movie={movie} key={movie.id} />
+            <MovieCard
+              movie={movie}
+              key={movie.id}
+              setActiveMovie={setActiveMovie}
+            />
           ))}
         </div>
       ) : (
@@ -21,6 +28,11 @@ function Favourites() {
             Start adding movies to your favourites and they will appear here!
           </p>
         </div>
+      )}
+
+      {/* Movie Modal */}
+      {activeMovie && (
+        <MovieModal movie={activeMovie} onClose={() => setActiveMovie(null)} />
       )}
     </div>
   );
