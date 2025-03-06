@@ -17,8 +17,8 @@
     padding: 0rem 1rem;
     flex-direction: column;
     gap: 0.5rem;
-    /* justify-content: center;
-    align-items: center; */
+    justify-content: center;
+    align-items: center;
   }
   .search-input {
     height: 100%;
