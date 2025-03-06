@@ -17,7 +17,7 @@ function MovieModal({ movie, onClose }) {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <button className="close-btn" onClick={onClose}>
-          &times;
+          &#10006;
         </button>
 
         {/* Movie Poster */}
@@ -45,7 +45,7 @@ function MovieModal({ movie, onClose }) {
         </button>
 
         {/* Movie Details */}
-        <h2>{movie.title}</h2>
+        <h2 className="movie-title">{movie.title}</h2>
         <p>
           <strong>Overview:</strong> {movie.overview}
         </p>
