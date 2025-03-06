@@ -1,6 +1,18 @@
+import { useMovieContext } from "../contexts/MovieContext";
 import "../css/MovieModal.css";
 
 function MovieModal({ movie, onClose }) {
+  const { isFavourite, addToFavourites, removeFromFavourites } =
+    useMovieContext();
+  const favourite = isFavourite(movie.id);
+
+  function onLikeClick(e) {
+    e.preventDefault();
+    e.stopPropagation(); // Prevent modal from closing on click
+    if (favourite) removeFromFavourites(movie.id);
+    else addToFavourites(movie);
+  }
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -13,11 +25,24 @@ function MovieModal({ movie, onClose }) {
           src={
             movie.poster_path
               ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-              : "/placeholder.jpg"
+              : "https://demofree.sirv.com/nope-not-here.jpg"
           }
           alt={movie.title}
           className="modal-movie-poster"
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = "https://demofree.sirv.com/nope-not-here.jpg";
+          }}
         />
+
+        {/* Like Button */}
+        <button
+          className={`like-btn ${favourite ? "active" : ""}`}
+          onClick={onLikeClick}
+          onDoubleClick={onLikeClick}
+        >
+          ♥
+        </button>
 
         {/* Movie Details */}
         <h2>{movie.title}</h2>
