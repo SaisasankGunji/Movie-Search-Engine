@@ -57,3 +57,18 @@ body.modal-open {
     padding: 15px; /* Reduce padding to fit smaller screens */
   }
 }
+.like-btn {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.like-btn.active {
+  color: #ff4757;
+}
