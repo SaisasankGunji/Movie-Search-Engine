@@ -20,8 +20,16 @@ function MovieCard({ movie, setActiveMovie }) {
     >
       <div className="movie-poster">
         <img
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          src={
+            movie.poster_path
+              ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+              : "https://demofree.sirv.com/nope-not-here.jpg"
+          }
           alt={movie.title}
+          onError={(e) => {
+            e.target.onerror = null; // Prevent infinite loop
+            e.target.src = "https://demofree.sirv.com/nope-not-here.jpg";
+          }}
         />
         <div className="movie-overlay">
           <button
