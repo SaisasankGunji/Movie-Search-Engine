@@ -21,7 +21,7 @@ Movie Search Engine is a web application built with **Vite + ReactJS** that allo
 ## **Technologies Used**  
 - **Vite + ReactJS**  
 - **JavaScript (ES6+)**  
-- **HTML, CSS** (Tailwind/Bootstrap if applicable)  
+- **HTML, CSS** 
 - **TMDb API** (The Movie Database)  
 - **Chart.js** for visualizing data  
 - **React Router** for navigation  
