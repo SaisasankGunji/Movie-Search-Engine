@@ -73,7 +73,7 @@ function Home() {
 
       {/* Movie List */}
       {loading ? (
-        <div className="loading">Loading...</div>
+        <div className="loading"></div>
       ) : (
         <>
           <div className="movies-grid">
