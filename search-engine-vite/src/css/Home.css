@@ -138,12 +138,29 @@
   color: #ff6b6b; /* Red error message */
   text-align: center;
   margin-top: 1rem;
+  border-top-color: #007bff;
 }
 
 .loading {
-  text-align: center;
-  margin-top: 1rem;
-  color: #007bff; /* Blue loading text */
+  height: 150px;
+  width: 150px;
+  border: 12px solid black;
+  border-top-color: #007bff;
+  border-radius: 50%;
+  animation: loading-animation 1s infinite linear;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes loading-animation {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 body.modal-open {
