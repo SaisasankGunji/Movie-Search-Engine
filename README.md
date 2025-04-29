@@ -1,12 +1,27 @@
-# React + Vite
+# **Movie Search Engine**  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## **Overview**  
+Movie Search Engine is a web application built with **Vite + ReactJS** that allows users to search for movies and view detailed information. It fetches data from the **free TMDb API** and provides an interactive interface with additional features like charts and routing.  
 
-Currently, two official plugins are available:
+## **Features**  
+- **Search for movies** by title  
+- **Movie details displayed** including:  
+  - **Title**  
+  - **Storyline**  
+  - **Popularity**  
+  - **Vote average**  
+  - **Vote count**  
+  - **Backdrop image**  
+  - **Original language**  
+  - **Genre IDs**  
+- **Modal popup** for additional details with a blurred background effect  
+- **Charts** to visualize movie ratings and other data using **Chart.js**  
+- **Navigation** using **React Router**  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## **Technologies Used**  
+- **Vite + ReactJS**  
+- **JavaScript (ES6+)**  
+- **HTML, CSS** (Tailwind/Bootstrap if applicable)  
+- **TMDb API** (The Movie Database)  
+- **Chart.js** for visualizing data  
+- **React Router** for navigation  
